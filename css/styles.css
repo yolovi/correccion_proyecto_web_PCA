@@ -36,15 +36,24 @@ main {
     padding: 20px;
 }
 
+main.portfolio {
+    padding-bottom: 60px; /* Ajusta este valor según la altura de tu footer */
+  }
+
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1em 0;
-    position: fixed;
+     /*position: fixed; */
+     opacity: 1; /* Aseguramos que sea visible inicialmente */
+     transition: opacity 0.3s ease-in-out;
     bottom: 0;
     width: 100%;
 }
+#miFooter:hover {
+    opacity: 0; /* Cuando el ratón está encima, la opacidad se reduce a 0 (invisible) */
+  }
 
 .button {
     display: inline-block;
@@ -108,6 +117,8 @@ footer {
     padding: 15px;
     border-radius: 5px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-item img,
@@ -202,4 +213,10 @@ footer {
     .portfolio .portfolio-grid {
         grid-template-columns: repeat(3, 1fr); /* Tres columnas en laptops */
     }
+}
+ .portfolio-item1{
+   margin-top: auto;  /* empuja el elemto hacia abajo */
+   border-radius: 5px;
+   border: 1px solid #ddd;
+   padding: 15px;
 }
