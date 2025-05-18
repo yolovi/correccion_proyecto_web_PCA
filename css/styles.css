@@ -1,4 +1,7 @@
 /* Estilos Generales */
+/* CORRECCION:
+    margin y padding es mejor meterlo en un selector unviersal con el resto de propiedades que queremos resetear.
+*/
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -40,6 +43,9 @@ main.portfolio {
     padding-bottom: 60px; /* Ajusta este valor según la altura de tu footer */
   }
 
+  /* CORRECCION: 
+    Ese valor bottom no funciona sin position, que lo tienes comentado. Acostumbrate a ponerlos juntos para que no te pase esto de comentar uno y dejar el otro. Das muchos paddings, y con medidas absolutas, esto hace que el footer te quede en mitad de la página en algunos dispositivos. De todas formas aquí no te interesa usar position, ya que solo quieres emppujarlo abajo de la pantalla cuando no hay suficiente contenido. Lo más adecuado aquí sería un flex en body con direccion de columna y aplicar al main flex: 1 para que coja todo el valor sobrante entre el header y body, que son los elementos con los que comparte espacio./
+  */
 footer {
     background-color: #333;
     color: #fff;
@@ -121,11 +127,16 @@ footer {
     flex-direction: column;
 }
 
+/* CORRECCION:
+    El audio no tiene espacio suficiente con el heigth en auto. Puedes quitarlo o añadirle un valor mínimo al height para asegurarte de que se muestra.
+    Etiquetas como <audio> y <video> tienen una interfaz gráfica que depende del navegador, especialmente cuando se usa el atributo controls. Al asignarle n height auto en contenedores flex o grid el navegador puede no calcular bien ese valor (lo que pasa aqui) y quedarse el reproductor invisible o colapsado.
+*/
 .portfolio-item img,
 .portfolio-item video,
 .portfolio-item audio {
     max-width: 100%;
     height: auto;
+    min-height: 1em;
     margin-bottom: 1em;
 }
 
@@ -214,6 +225,9 @@ footer {
         grid-template-columns: repeat(3, 1fr); /* Tres columnas en laptops */
     }
 }
+/* CORRECCION:
+    esto deberías tenerlo junto a .portfolio-item
+*/
  .portfolio-item1{
    margin-top: auto;  /* empuja el elemto hacia abajo */
    border-radius: 5px;
